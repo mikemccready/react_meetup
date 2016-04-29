@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
     <style>.meetup{border:solid black 1px;margin: 0.25em 1em;padding:0 1em 1em;}</style>
   </head>
   <body>
@@ -16,17 +16,17 @@
 
       var MeetupContainer = React.createClass({
         loadMeetupsFromServer: function() {
-          $.ajax({
-            url: this.props.url,
-            dataType: 'json',
-            cache: false,
-            success: function(data) {
-              this.setState({data: data});
-            }.bind(this),
-            error: function(xhr, status, err) {
-              console.error(this.props.url, status, err.toString());
-            }.bind(this)
-          });
+          var request = new XMLHttpRequest();
+           
+          request.onreadystatechange = () => {
+            if (request.readyState === 4 && request.status === 200){
+              var response = JSON.parse(request.responseText);
+              this.setState({data: response}) 
+            }  
+          }
+          request.open('GET',this.props.url,true);
+          request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+          request.send();
         },
         getInitialState: function() {
           return {data: []};
@@ -38,10 +38,9 @@
         render: function() {
           return (
             <div className="meetupContainer">
-              <h1>Comments</h1>
-              <MeetupList data={this.state.data} />
               <MeetupForm />
-            </div>
+              <MeetupList data={this.state.data} />
+            </div>  
           );
         }
       });

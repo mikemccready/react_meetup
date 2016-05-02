@@ -7,13 +7,14 @@ var hashHistory = ReactRouter.hashHistory;
 var Main = require('../components/Main');
 var Events = require('../components/Events');
 var SignupContainer = require('../containers/SignupContainer');
-// var NewEvent = require('../components/NewEvent');
+var NewEventContainer = require('../containers/NewEventContainer');
 
 var routes = (
 	<Router history={hashHistory}>
 		<Route path="/" component={Main}>
 			<IndexRoute component={Events} />
 			<Route path='signup' component={SignupContainer} />
+			<Route path='newEvent' component={NewEventContainer} />
 		</Route>
 	</Router>
 );

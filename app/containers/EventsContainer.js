@@ -14,11 +14,11 @@ var EventsContainer = React.createClass({
 		return { meetups: [] };
 	},
 	componentDidMount: function() {
-		var self = this;
+		// var self = this;
 		axios.get(__dirname + 'mock-data.json')
 		.then(function(response) {
-			self.setState({meetups: response.data});
-		})
+			this.setState({meetups: response.data});
+		}.bind(this))
 	},
 	render: function() {
         var meetupList = this.state.meetups.map(function(meetup){

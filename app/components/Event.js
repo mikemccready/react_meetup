@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Events = React.createClass({
+var Event = React.createClass({
 	render: function() {
 		return(
 			<div>
@@ -10,4 +10,4 @@ var Events = React.createClass({
 	}
 })
 
-module.exports = Events;
+module.exports = Event;

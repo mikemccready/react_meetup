@@ -1,7 +1,7 @@
 var React = require('react');
 
 function SignupForm(props) {
-	console.log(props)
+	// console.log(props)
 	return(
 		<form className="form-container">
 			<label for="name">
@@ -30,7 +30,27 @@ function SignupForm(props) {
 					required
 					onChange={props.onCheckPassword}
 					value={props.password}></input>
-			</label>			
+			</label>
+			<span id="character-length" style={{display: 'none'}}>Must be between 8 and 20 characters</span>
+			<span id="password-number" style={{display: 'none'}}>Must contain a number</span>
+			<label for="confirm-password">
+				Confirm Password
+				<input id="confirm-password" 
+					type="password" 
+					placeholder="Password1234" 
+					autocomplete="new-password" 
+					required
+					disabled
+					onChange={props.onConfirmPassword}
+					value={props.confirmPassword}></input>
+			</label>
+			<span id="password-match" style={{display: 'none'}}>Passwords must match</span>
+			<button
+  				id="submit-btn"
+  				disabled
+              	type="submit">
+                Continue
+            </button>						
 		</form>
 	)
 }

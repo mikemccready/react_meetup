@@ -21,9 +21,12 @@ var EventsContainer = React.createClass({
 		})
 	},
 	render: function() {
-		var meetups = this.state.meetups;
-        var meetupList = meetups.map(function(name){
-                        return <Event />;
+        var meetupList = this.state.meetups.map(function(meetup){
+                        return <Event
+                        			title={meetup.title}
+                        			host={meetup.host}
+                        			location={meetup.location}
+                        		/>;
                       })
 
         return  <div>{ meetupList }</div>

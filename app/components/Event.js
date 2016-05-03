@@ -1,13 +1,15 @@
 var React = require('react');
 
-var Event = React.createClass({
-	render: function() {
-		return(
-			<div>
-				<h1>Events</h1>
-			</div>
-		)
-	}
-})
+function Event(props) {
+	console.log(props)
+	return(
+		<div>
+			<h3>{props.title}</h3>
+			hosted by: {props.host}
+			<p>{props.location}</p>
+			<hr/>
+		</div>
+	)
+}
 
 module.exports = Event;

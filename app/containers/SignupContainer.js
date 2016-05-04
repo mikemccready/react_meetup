@@ -52,8 +52,12 @@ var SignupContainer = React.createClass({
 
 		if(passingReq.length === requirements.length) {
 			document.getElementById('confirm-password').disabled = false;
+			document.getElementById('confirm-password').style.cursor = 'text';
+			document.getElementById('confirm-password-label').style.color = '#ef5100';
 		}else {
 			document.getElementById('confirm-password').disabled = true;
+			document.getElementById('confirm-password').style.cursor = 'not-allowed';
+			document.getElementById('confirm-password-label').style.color = 'lightgray';
 		}
 
 	},
@@ -71,15 +75,19 @@ var SignupContainer = React.createClass({
 	    if(this.state.userInfo.password !== newUserInfo.confirmPassword){
 	    	document.getElementById('password-match').style.display = 'block';
 	    	document.getElementById('submit-btn').disabled = true;
+	    	document.getElementById('submit-btn').style.cursor = 'not-allowed';
+	    	document.getElementById('submit-btn').style.color = 'lightgray';
+
 	    } else {
 	    	document.getElementById('password-match').style.display = 'none';
 	    	document.getElementById('submit-btn').disabled = false;
+	    	document.getElementById('submit-btn').style.color = '#ef5100';
+	    	document.getElementById('submit-btn').style.cursor = 'pointer';
 	    } 
 	},
 	render: function() {
 		return(
 			<div>
-				<h1>Sign up</h1>
 				<SignupForm 
 					password={this.state.userInfo.password}
 					onCheckPassword={this.handleCheckPassword}

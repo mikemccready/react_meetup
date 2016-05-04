@@ -3,7 +3,7 @@ var React = require('react');
 function SignupForm(props) {
 	// console.log(props)
 	return(
-		<form className="form-container">
+		<form className="form">
 			<label for="name">
 				Name
 				<input type="text" 
@@ -23,6 +23,8 @@ function SignupForm(props) {
 			</label>
 			<label for="password">
 				Password
+				<span id="character-length" style={{display: 'none'}}>Must be between 8 and 20 characters</span>
+				<span id="password-number" style={{display: 'none'}}>Must contain a number</span>				
 				<input id="password" 
 					type="password" 
 					placeholder="Password1234" 
@@ -31,10 +33,9 @@ function SignupForm(props) {
 					onChange={props.onCheckPassword}
 					value={props.password}></input>
 			</label>
-			<span id="character-length" style={{display: 'none'}}>Must be between 8 and 20 characters</span>
-			<span id="password-number" style={{display: 'none'}}>Must contain a number</span>
 			<label for="confirm-password">
-				Confirm Password
+				<span id="confirm-password-label" style={{color: 'gray'}}>Confirm Password</span>
+				<span id="password-match" style={{display: 'none'}}>Passwords not matching</span>
 				<input id="confirm-password" 
 					type="password" 
 					placeholder="Password1234" 
@@ -42,14 +43,15 @@ function SignupForm(props) {
 					required
 					disabled
 					onChange={props.onConfirmPassword}
-					value={props.confirmPassword}></input>
+					value={props.confirmPassword}
+					style={{cursor: 'not-allowed'}}></input>
 			</label>
-			<span id="password-match" style={{display: 'none'}}>Passwords must match</span>
 			<button
   				id="submit-btn"
+  				style={{cursor: 'not-allowed'}}
   				disabled
               	type="submit">
-                Continue
+                Sign up!
             </button>						
 		</form>
 	)

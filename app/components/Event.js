@@ -3,11 +3,10 @@ var React = require('react');
 function Event(props) {
 	console.log(props)
 	return(
-		<div>
+		<div className="event">
 			<h3>{props.title}</h3>
 			hosted by: {props.host}
 			<p>{props.location}</p>
-			<hr/>
 		</div>
 	)
 }

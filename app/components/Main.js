@@ -12,7 +12,7 @@ var Main = React.createClass({
 					<Link to='/newEvent' style={{padding: '1em'}}>Create Event</Link>
 					<Link to='/' style={{padding: '1em'}}>Events</Link>
 				</div>
-				<div style={{position: 'relative', top: '5em', margin: '0 2.5em'}}>
+				<div style={{position: 'relative', top: '5em', margin: '0'}}>
 					{this.props.children}
 				</div>	
 			</div>	

@@ -2,7 +2,7 @@ var React = require('react');
 
 function NewEventForm(props) {
 	return(
-		<form className="form-container">
+		<form className="form">
 			<label for="title">
 				Name of Event
 				<input type="text" 

@@ -75,14 +75,16 @@ var SignupContainer = React.createClass({
 	    if(this.state.userInfo.password !== newUserInfo.confirmPassword){
 	    	document.getElementById('password-match').style.display = 'block';
 	    	document.getElementById('submit-btn').disabled = true;
-	    	document.getElementById('submit-btn').style.cursor = 'not-allowed';
-	    	document.getElementById('submit-btn').style.color = 'lightgray';
+	    	// document.getElementById('submit-btn').style.cursor = 'not-allowed';
+	    	// document.getElementById('submit-btn').style.color = 'lightgray';
+	    	document.getElementById('submit-btn').className = 'disabled';
 
 	    } else {
 	    	document.getElementById('password-match').style.display = 'none';
 	    	document.getElementById('submit-btn').disabled = false;
-	    	document.getElementById('submit-btn').style.color = '#ef5100';
-	    	document.getElementById('submit-btn').style.cursor = 'pointer';
+	    	// document.getElementById('submit-btn').style.color = '#ef5100';
+	    	// document.getElementById('submit-btn').style.cursor = 'pointer';
+	    	document.getElementById('submit-btn').className = 'active';
 	    } 
 	},
 	render: function() {

@@ -48,10 +48,10 @@ function SignupForm(props) {
 			</label>
 			<button
   				id="submit-btn"
-  				style={{cursor: 'not-allowed'}}
+  				className="disabled"
   				disabled
               	type="submit">
-                Sign up!
+                Sign up
             </button>						
 		</form>
 	)

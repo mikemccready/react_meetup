@@ -41,6 +41,7 @@ function NewEventForm(props) {
 
 			<button
   				id="submit-btn"
+  				className="disabled"
   				disabled
               	type="submit">
                 Continue

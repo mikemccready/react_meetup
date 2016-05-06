@@ -15,6 +15,19 @@ body {
 	background-position: center center;
 }
 
+#nav-icon {
+	height: 2em;
+	padding: 0.5em 1em;
+}
+
+.nav-link {
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	padding: 1em 0;
+}
+
 .event {
 	width: 100%;
 	background-color: white;
@@ -25,7 +38,7 @@ body {
 
 
 .form {
-	background-color: white;
+	background-color: none;
 	padding: 0.5em;
 	width: 100%;
 	max-width: 30em;
@@ -47,7 +60,7 @@ body {
 			border: none;
 			background-color: rgba(0,0,0,0);
 			font-size: 1.5em;
-			color: black;
+			color: white;
 			font-family: $copy;
 
 			&:focus{
@@ -62,6 +75,7 @@ body {
 
 		::-webkit-input-placeholder {
 		   font-family: $copy;
+		   color: white;
 		}
 
 		:-moz-placeholder { /* Firefox 18- */
@@ -82,7 +96,7 @@ body {
 	}
 
 	#submit-btn {
-		background-color: white;
+		background-color: rgba(0,0,0,0);
 		height: 2.5em;
 		line-height: 2.5em;
 		width: 66%;
@@ -94,19 +108,21 @@ body {
 		letter-spacing: 0.15em;
 		font-family: $copy;	
 		transition: 1s;	
+		color: $og;
 
 		&.disabled {
-			border: solid 2px gray;
+			border: solid 2px rgba(255,255,255,.33);
 			cursor: not-allowed;
 		}
 
 		&.active {
 			border: solid 2px $og;
 			cursor: pointer;
-		}
 
-		&:hover {
-			color: $og;
+			&:hover {
+				color: white;
+				background-color: $og;
+			}
 		}
 	}
 

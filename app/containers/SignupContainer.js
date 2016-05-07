@@ -68,10 +68,6 @@ var SignupContainer = React.createClass({
 	      userInfo : newUserInfo
 	    });
 
-	    console.log(this.state.userInfo.password)
-	    console.log(this.state.userInfo.confirmPassword)
-
-
 	    if(this.state.userInfo.password !== newUserInfo.confirmPassword){
 	    	document.getElementById('password-match').style.display = 'block';
 	    	document.getElementById('submit-btn').disabled = true;

@@ -6,7 +6,7 @@ $copy: "Cardo";
 body {
 	background-color: white;
 	width: 100vw;
-	height: 100vh;
+	height: 100%;
 	margin: 0;
 	font-family: $head;
 	font-weight: light;
@@ -15,24 +15,54 @@ body {
 	background-position: center center;
 }
 
-#nav-icon {
-	height: 2em;
-	padding: 0.5em 1em;
-}
+nav {
+	position: fixed;
+	z-index: 1000;
+	width: 100vw;
+	top: 0;
+	transition: .5s;
+	border-bottom: rgba(255,255,255,.3) solid 0px;
 
-.nav-link {
-	text-decoration: none;
-	color: white;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
-	padding: 1em 0;
+	#nav-icon {
+		height: 2em;
+		padding: 0.5em 1em;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		color: white;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		padding: 1em 0;
+		cursor: pointer;
+		font-family: $head;
+	}
+
+	&.scrolled {
+		background-color: rgba(255,255,255,.3);
+		border-bottom: rgba(255,255,255,.3) solid 1px;
+	}
 }
 
 .event {
-	width: 100%;
-	background-color: white;
+	position: relative;
+	width: 90vw;
+	height: 45vw;
+	background-size: cover;
+	background-image: url(http://lorempixel.com/800/400);
 	padding: .5em 2em;
-	margin: 0.5em auto;
+	margin: 1em auto;
+	max-width: 30em;
+	max-height: 15em;
+
+	.event-info {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: calc(100% - 2em);
+		padding: 0 1em;
+		background-color: rgba(255,255,255,.3);
+	}
 }
 
 

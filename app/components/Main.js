@@ -6,7 +6,7 @@ var Main = React.createClass({
 		return(
 			<div className='main-container'>	
 				<Nav />
-				<div style={{position: 'relative', top: '5em', margin: '0'}}>
+				<div style={{position: 'relative', top: '5em', margin: 0}}>
 					{this.props.children}
 				</div>	
 			</div>			

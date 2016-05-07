@@ -14,12 +14,15 @@ var EventsContainer = React.createClass({
 	},
 	render: function() {
         var meetupList = this.state.meetups.map(function(meetup){
-                        return <Event
-                        			title={meetup.title}
-                        			host={meetup.host}
-                        			location={meetup.location}
-                        		/>;
-                      })
+        	console.log(meetup)
+            return <Event
+            			key={meetup.id}
+            			title={meetup.title}
+            			host={meetup.host}
+            			image={meetup.image}
+            			location={meetup.city}
+            		/>;
+          })
 
         return  <div>{ meetupList }</div>
 	}

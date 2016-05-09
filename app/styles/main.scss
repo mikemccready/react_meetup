@@ -1,12 +1,13 @@
 $og: #ef5100;
 // rgb(239,81,0)
-$head: "alternate-gothic-no-3-d";
-$copy: "Cardo";
+$head: "brandon-grotesque";
+$copy: "freight-text-pro";
 
 body {
 	background-color: white;
 	width: 100vw;
-	height: 100%;
+	height: auto;
+	min-height: 100vh;
 	margin: 0;
 	font-family: $head;
 	font-weight: light;
@@ -36,12 +37,24 @@ nav {
 		padding: 1em 0;
 		cursor: pointer;
 		font-family: $head;
+		transition: .5s;
+		font-size: .75em;
+
+		&:hover {
+			color: $og;
+		}
 	}
 
 	&.scrolled {
 		background-color: rgba(255,255,255,.3);
 		border-bottom: rgba(255,255,255,.3) solid 1px;
 	}
+}
+
+.events-container {
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
 }
 
 .event {
@@ -54,6 +67,43 @@ nav {
 	margin: 1em auto;
 	max-width: 30em;
 	max-height: 15em;
+	box-shadow: .15em .15em .15em 0px rgba(0, 0, 0, 0.15);
+	text-align: left;
+	text-transform: capitalize;
+	color: rgba(0,0,0,.5);
+
+	h3 {
+		margin: 0;
+		color: rgba(0,0,0,.9);
+	}
+
+	.event-location {
+		position: absolute;
+		font-family: $head;
+		letter-spacing: 0.075em;
+		text-transform: uppercase;
+		color: rgba(0,0,0,.9);
+		font-size: .75em;
+		top: 0;
+		left: 0;
+		height: 2em;
+		background-color: rgba(255,255,255,.6);
+
+		#event-icon {
+			display: inline-block;
+			position: absolute;
+			height: 1em;
+			padding: 0.5em;
+			padding-right: 0;
+		}
+
+		h5 {
+			display: inline-block;
+			padding: 0.5em 1em;
+			margin: 0 0 0 .75em;
+			line-height: 2em;
+		}
+	}
 
 	.event-info {
 		position: absolute;
@@ -61,7 +111,7 @@ nav {
 		left: 0;
 		width: calc(100% - 2em);
 		padding: 0 1em;
-		background-color: rgba(255,255,255,.3);
+		background-color: rgba(255,255,255,.6);
 	}
 }
 
@@ -158,6 +208,15 @@ nav {
 
 }
 
+#submit-overlay {
+	position: fixed;
+	top: 0;
+	display: none;
+	width: 100vw;
+	height: 100vh;
+	background-color: white;
+}
+
 @media(min-width: 768px) {
 	.form {
 		label {
@@ -169,3 +228,12 @@ nav {
 		}
 	}		
 }
+
+@media(min-width: 1000px) {
+	.event {
+		width: 25%;
+		height: 15vw;
+		margin: .5em;
+		display: inline-block;
+	}
+}	

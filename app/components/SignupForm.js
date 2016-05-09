@@ -3,7 +3,7 @@ var React = require('react');
 function SignupForm(props) {
 	// console.log(props)
 	return(
-		<form className="form">
+		<form onSubmit={props.onSubmit} className="form">
 			<label for="name">
 				Name
 				<input type="text" 

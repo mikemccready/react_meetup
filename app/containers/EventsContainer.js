@@ -24,7 +24,7 @@ var EventsContainer = React.createClass({
             		/>;
           })
 
-        return  <div>{ meetupList }</div>
+        return  <div className="events-container">{ meetupList }</div>
 	}
 })
 

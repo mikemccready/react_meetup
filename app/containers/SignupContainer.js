@@ -1,5 +1,7 @@
 var React = require('react');
 var SignupForm = require('../components/SignupForm');
+var ReactRouter = require('react-router');
+var Link =  ReactRouter.Link;
 
 var SignupContainer = React.createClass({
 	getInitialState: function() {
@@ -83,13 +85,23 @@ var SignupContainer = React.createClass({
 	    	document.getElementById('submit-btn').className = 'active';
 	    } 
 	},
+
+	handleSubmit: function (event) {
+	  event.preventDefault();
+	  document.getElementById('submit-overlay').style.display = 'block';
+	},	
 	render: function() {
 		return(
 			<div>
 				<SignupForm 
+					onSubmit={this.handleSubmit}
 					password={this.state.userInfo.password}
 					onCheckPassword={this.handleCheckPassword}
 					onConfirmPassword={this.handleConfirmPassword} />
+				<div id="submit-overlay">
+					<h1>Thanks for joining!</h1>
+					<Link to='/'>Browse Events</Link>
+				</div>
 			</div>	
 		)
 	}

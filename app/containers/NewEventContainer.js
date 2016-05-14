@@ -10,6 +10,9 @@ var NewEventContainer = React.createClass({
 				host: '',
 				location: '',
 				startDateTime: '',
+				endDateTime: '',
+				guestList: [],
+				guestInstructions: ''
 			}		
 		}
 	},

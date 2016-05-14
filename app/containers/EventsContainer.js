@@ -14,7 +14,6 @@ var EventsContainer = React.createClass({
 	},
 	render: function() {
         var meetupList = this.state.meetups.map(function(meetup){
-        	console.log(meetup)
             return <Event
             			key={meetup.id}
             			title={meetup.title}

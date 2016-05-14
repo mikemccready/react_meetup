@@ -30,6 +30,10 @@ function NewEventForm(props) {
 				<option value="Meet-up" />
 				<option value="Special Event" />
 			</datalist>
+			<label for="location">
+				Location
+				<input id="location" list="events" name="myEvent" placeholder="Cocktail Hour" />
+			</label>
 			<label for="start-time">
 				Start Time
 				<input id="start-time" type="datetime-local" required></input>

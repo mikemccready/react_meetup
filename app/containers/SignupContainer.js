@@ -55,11 +55,11 @@ var SignupContainer = React.createClass({
 		if(passingReq.length === requirements.length) {
 			document.getElementById('confirm-password').disabled = false;
 			document.getElementById('confirm-password').style.cursor = 'text';
-			document.getElementById('confirm-password-label').style.color = '#ef5100';
+			document.getElementById('confirm-password-label').style.color = 'color: rgba(0,0,0,9)';
 		}else {
 			document.getElementById('confirm-password').disabled = true;
 			document.getElementById('confirm-password').style.cursor = 'not-allowed';
-			document.getElementById('confirm-password-label').style.color = 'lightgray';
+			document.getElementById('confirm-password-label').style.color = 'color: rgba(0,0,0,.3);';
 		}
 
 	},
@@ -100,7 +100,7 @@ var SignupContainer = React.createClass({
 					onConfirmPassword={this.handleConfirmPassword} />
 				<div id="submit-overlay">
 					<h1>Thanks for joining!</h1>
-					<Link to='/'>Browse Events</Link>
+					<button id="submit-btn"><Link to='/'>Browse Events</Link></button>
 				</div>
 			</div>	
 		)

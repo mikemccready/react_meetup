@@ -1,4 +1,5 @@
 $og: #ef5100;
+$gold: rgb(179,138,0);
 // rgb(239,81,0)
 $head: "brandon-grotesque";
 $copy: "freight-text-pro";
@@ -11,7 +12,7 @@ body {
 	margin: 0;
 	font-family: $head;
 	font-weight: light;
-	background: url(../assets/bg.jpg);
+	// background: url(../assets/bg.jpg);
 	background-size: cover;
 	background-position: center center;
 }
@@ -22,7 +23,7 @@ nav {
 	width: 100vw;
 	top: 0;
 	transition: .5s;
-	border-bottom: rgba(255,255,255,.3) solid 0px;
+	border-bottom: white solid 0px;
 
 	#nav-icon {
 		height: 2em;
@@ -31,12 +32,13 @@ nav {
 
 	.nav-link {
 		text-decoration: none;
-		color: white;
+		color: black;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		padding: 1em 0;
 		cursor: pointer;
 		font-family: $head;
+		font-weight: bold;
 		transition: .5s;
 		font-size: .75em;
 
@@ -46,8 +48,8 @@ nav {
 	}
 
 	&.scrolled {
-		background-color: rgba(255,255,255,.3);
-		border-bottom: rgba(255,255,255,.3) solid 1px;
+		background-color: rgba(255,255,255,.75);
+		border-bottom: white solid 1px;
 	}
 }
 
@@ -59,22 +61,34 @@ nav {
 
 .event {
 	position: relative;
+	cursor: pointer;
 	width: 90vw;
 	height: 45vw;
-	background-size: cover;
-	background-image: url(http://lorempixel.com/800/400);
+	background-size: cover !important;
+	background-position: center center !important;
 	padding: .5em 2em;
 	margin: 1em auto;
 	max-width: 30em;
 	max-height: 15em;
+	// border: 2px solid $gold;
 	box-shadow: .15em .15em .15em 0px rgba(0, 0, 0, 0.15);
 	text-align: left;
 	text-transform: capitalize;
 	color: rgba(0,0,0,.5);
+	transition: 1s;
 
 	h3 {
-		margin: 0;
+		margin: .5em 0;
 		color: rgba(0,0,0,.9);
+		text-transform: uppercase;
+		font-size: 1em;
+		letter-spacing: 0.075em;
+	}
+	
+	p {
+		font-family: $copy;
+		line-height: 0;
+		margin: 1em 0 .75em;
 	}
 
 	.event-location {
@@ -87,7 +101,7 @@ nav {
 		top: 0;
 		left: 0;
 		height: 2em;
-		background-color: rgba(255,255,255,.6);
+		background-color: rgba(255,255,255,.9);
 
 		#event-icon {
 			display: inline-block;
@@ -109,9 +123,11 @@ nav {
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		width: calc(100% - 2em);
+		margin-right: auto;
+		width: auto;
 		padding: 0 1em;
-		background-color: rgba(255,255,255,.6);
+		background-color: rgba(255,255,255,.9);
+		transition: 1s;
 	}
 }
 
@@ -128,10 +144,11 @@ nav {
 		display: block;
 		margin: 1em auto 2em;
 		width: 100%;
-		color: $og;
+		color: rgba(0,0,0,.66);
+		font-weight: bold;
 		font-size: .75em;
 		text-transform: uppercase;
-		letter-spacing: 0.05em;
+		letter-spacing: 0.1em;
 		transition: 1s;
 
 		input {
@@ -140,12 +157,13 @@ nav {
 			border: none;
 			background-color: rgba(0,0,0,0);
 			font-size: 1.5em;
-			color: white;
+			font-weight: bold;
+			color: rgba(0,0,0,1);
 			font-family: $copy;
 
 			&:focus{
 				outline: none!important;
-				border-bottom: rgba(239,81,0,.66) solid 2px;
+				border-bottom: rgba(239,81,0,.66) solid 1px;
 			}
 
 			&:-webkit-autofill {
@@ -155,7 +173,9 @@ nav {
 
 		::-webkit-input-placeholder {
 		   font-family: $copy;
-		   color: white;
+		   font-weight: bold;
+		   letter-spacing: 0.05em;
+		   color: rgba(0,0,0,.3);
 		}
 
 		:-moz-placeholder { /* Firefox 18- */
@@ -183,25 +203,27 @@ nav {
 		margin: 2em 17%;
 		padding: 0;
 		font-family: $head;
+		font-weight: bold;
 		font-size: 1em;
 		text-transform: uppercase;
-		letter-spacing: 0.15em;
+		letter-spacing: 0.2em;
 		font-family: $copy;	
 		transition: 1s;	
-		color: $og;
+		color: rgba(0,0,0,.3);
 
 		&.disabled {
 			border: solid 2px rgba(255,255,255,.33);
 			cursor: not-allowed;
+			color: rgba(0,0,0,.3);
 		}
 
 		&.active {
-			border: solid 2px $og;
+			border: solid 2px $gold;
 			cursor: pointer;
+			color: rgba(0,0,0,1);
 
 			&:hover {
-				color: white;
-				background-color: $og;
+				color:  $og;
 			}
 		}
 	}
@@ -212,9 +234,41 @@ nav {
 	position: fixed;
 	top: 0;
 	display: none;
+	background-image: url(https://lunkiandsika.files.wordpress.com/2010/01/where_the_wild_things_are-2.jpg);
+	background-size: cover;
 	width: 100vw;
 	height: 100vh;
-	background-color: white;
+	text-align: center;
+	
+	h1 {
+		font-size: 5em;
+		color: $gold;
+		width: 100%;
+		margin-top: 2em;
+		text-align: center;
+	}
+
+	#submit-btn {
+		background-color: rgba(0,0,0,1);
+		height: 2.5em;
+		line-height: 2.5em;
+		width: 20em;
+		padding: 0;
+		font-family: $head;
+		font-weight: bold;
+		font-size: 1em;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		font-family: $copy;	
+		transition: 1s;	
+		color: rgba(0,0,0,.3);
+		border: $gold solid 2px;
+
+		a {
+			text-decoration: none;
+			color: $gold;
+		}
+	}	
 }
 
 @media(min-width: 768px) {
@@ -222,7 +276,7 @@ nav {
 		label {
 			input {
 				display: inline-block;
-				width: 75%;
+				width: 66%;
 				margin-left: 1em;
 			}			
 		}
@@ -231,7 +285,7 @@ nav {
 
 @media(min-width: 1000px) {
 	.event {
-		width: 25%;
+		width: 33%;
 		height: 15vw;
 		margin: .5em;
 		display: inline-block;

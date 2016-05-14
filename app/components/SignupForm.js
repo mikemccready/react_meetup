@@ -34,7 +34,7 @@ function SignupForm(props) {
 					value={props.password}></input>
 			</label>
 			<label for="confirm-password">
-				<span id="confirm-password-label" style={{color: 'rgba(255,255,255,.33'}}>Confirm Password</span>
+				<span id="confirm-password-label" style={{color: 'rgba(0,0,0,.33'}}>Confirm Password</span>
 				<span id="password-match" style={{display: 'none'}}>Passwords not matching</span>
 				<input id="confirm-password" 
 					type="password" 

@@ -6,19 +6,24 @@ function SignupForm(props) {
 		<form onSubmit={props.onSubmit} className="form">
 			<label for="name">
 				Name
-				<input type="text" 
+				<span id="name-valid" style={{display: 'none'}}>Please enter your name</span>
+				<input id="name"
+					type="text" 
 					placeholder="John Smith" 
 					autocomplete="name" 
 					autoFocus={focus}
+					onBlur={props.onBlur}
 					required>
 				</input>
 			</label>
 			<label for="email">
 				Email address
+				<span id="email-valid" style={{display: 'none'}}>Please enter your email</span>
 				<input id="email" 
 					type="email" 
 					placeholder="john.smith@gmail.com" 
-					autocomplete="email" 
+					autocomplete="email"
+					onBlur={props.onBlur} 
 					required></input>
 			</label>
 			<label for="password">
@@ -30,6 +35,7 @@ function SignupForm(props) {
 					placeholder="Password1234" 
 					autocomplete="new-password" 
 					required
+					onBlur={props.onCheckPassword} 
 					onChange={props.onCheckPassword}
 					value={props.password}></input>
 			</label>

@@ -14,6 +14,13 @@ var SignupContainer = React.createClass({
 			}
 		}
 	},
+	vaildateInput : function (e) {
+		if (e.target.value.length < 1) {
+			document.getElementById(e.target.id + '-valid').style.display = 'block';
+		} else {
+			document.getElementById(e.target.id + '-valid').style.display = 'none';
+		}
+	},	
 	handleCheckPassword: function(e) {
 		//update state
 		var newUserInfo = this.state.userInfo;
@@ -55,11 +62,11 @@ var SignupContainer = React.createClass({
 		if(passingReq.length === requirements.length) {
 			document.getElementById('confirm-password').disabled = false;
 			document.getElementById('confirm-password').style.cursor = 'text';
-			document.getElementById('confirm-password-label').style.color = 'color: rgba(0,0,0,9)';
+			document.getElementById('confirm-password-label').style.color = 'rgba(0,0,0,.9)';
 		}else {
 			document.getElementById('confirm-password').disabled = true;
 			document.getElementById('confirm-password').style.cursor = 'not-allowed';
-			document.getElementById('confirm-password-label').style.color = 'color: rgba(0,0,0,.3);';
+			document.getElementById('confirm-password-label').style.color = 'rgba(0,0,0,.3)';
 		}
 
 	},
@@ -96,6 +103,7 @@ var SignupContainer = React.createClass({
 				<SignupForm 
 					onSubmit={this.handleSubmit}
 					password={this.state.userInfo.password}
+					onBlur={this.vaildateInput}
 					onCheckPassword={this.handleCheckPassword}
 					onConfirmPassword={this.handleConfirmPassword} />
 				<div id="submit-overlay">

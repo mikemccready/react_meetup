@@ -151,32 +151,11 @@ nav {
 		letter-spacing: 0.1em;
 		transition: 1s;
 
-		input, textarea {
-			display: block;
-			width: 90%;
-			padding: 0.75em 0 0.25em;
-			border: none;
-			background-color: rgba(0,0,0,0);
-			font-size: 1.5em;
-			font-weight: bold;
-			color: rgba(0,0,0,1);
-			font-family: $copy;
-
-			&:focus{
-				outline: none!important;
-				border-bottom: rgba(239,81,0,.66) solid 1px;
-			}
-
-			&:-webkit-autofill {
-			    -webkit-box-shadow: 0 0 0px 1000px white inset;
-			}
-		}
-
 		::-webkit-input-placeholder {
 		   font-family: $copy;
 		   font-weight: bold;
 		   letter-spacing: 0.05em;
-		   color: rgba(0,0,0,.3);
+		   color: rgba(0,0,0,.45);
 		}
 
 		:-moz-placeholder { /* Firefox 18- */
@@ -189,10 +168,39 @@ nav {
 
 		:-ms-input-placeholder {  
 		   font-family: $copy;
+		}		
+
+		input, textarea {
+			display: block;
+			width: 95%;
+			padding: 0.75em 0 0.25em;
+			border: none;
+			background-color: rgba(0,0,0,0);
+			font-size: 1.5em;
+			font-weight: bold;
+			color: rgba(0,0,0,1);
+			font-family: $copy;
+
+			&:focus{
+				outline: none!important;
+				border-bottom: $gold 2px solid;
+				color: black;
+
+				// ::-webkit-input-placeholder {
+				//    font-family: $copy;
+				//    font-weight: bold;
+				//    letter-spacing: 0.05em;
+				//    color: rgba(255,255,255,.3) !important;
+				// }
+			}
+
+			&:-webkit-autofill {
+			    -webkit-box-shadow: 0 0 0px 1000px white inset;
+			}
 		}
 
 		span {
-			color: black;
+			color: $gold;
 		}			
 	}
 
@@ -228,7 +236,6 @@ nav {
 			}
 		}
 	}
-
 }
 
 #submit-overlay {

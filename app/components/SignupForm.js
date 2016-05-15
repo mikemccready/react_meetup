@@ -13,6 +13,7 @@ function SignupForm(props) {
 					autocomplete="name" 
 					autoFocus={focus}
 					onBlur={props.onBlur}
+					onChange={props.onBlur}
 					required>
 				</input>
 			</label>
@@ -23,7 +24,8 @@ function SignupForm(props) {
 					type="email" 
 					placeholder="john.smith@gmail.com" 
 					autocomplete="email"
-					onBlur={props.onBlur} 
+					onBlur={props.onBlur}
+					onChange={props.onBlur} 
 					required></input>
 			</label>
 			<label for="password">
@@ -39,10 +41,10 @@ function SignupForm(props) {
 					onChange={props.onCheckPassword}
 					value={props.password}></input>
 			</label>
-			<label for="confirm-password">
-				<span id="confirm-password-label" style={{color: 'rgba(0,0,0,.33'}}>Confirm Password</span>
+			<label for="confirmPassword">
+				<span id="confirmPassword-label" style={{color: 'rgba(0,0,0,.33'}}>Confirm Password</span>
 				<span id="password-match" style={{display: 'none'}}>Passwords not matching</span>
-				<input id="confirm-password" 
+				<input id="confirmPassword" 
 					type="password" 
 					placeholder="Password1234" 
 					autocomplete="new-password" 

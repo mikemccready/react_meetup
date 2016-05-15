@@ -14,22 +14,23 @@ var SignupContainer = React.createClass({
 			}
 		}
 	},
+	updateState : function (e) {
+		var input = e.target.id;
+		this.state.userInfo[input] = e.target.value;
+	},
 	vaildateInput : function (e) {
+		this.updateState(e);
 		if (e.target.value.length < 1) {
 			document.getElementById(e.target.id + '-valid').style.display = 'block';
 		} else {
 			document.getElementById(e.target.id + '-valid').style.display = 'none';
 		}
+		this.handleConfirmPassword()
 	},	
 	handleCheckPassword: function(e) {
 		//update state
-		var newUserInfo = this.state.userInfo;
-		newUserInfo.password = e.target.value;
-	    this.setState({
-	      userInfo : newUserInfo
-	    });
-
-	    var password = newUserInfo.password;
+		this.updateState(e);
+	    var password = this.state.userInfo.password;
 		var passingReq = [];
 		var requirements = [
 			{
@@ -60,24 +61,19 @@ var SignupContainer = React.createClass({
 		});	
 
 		if(passingReq.length === requirements.length) {
-			document.getElementById('confirm-password').disabled = false;
-			document.getElementById('confirm-password').style.cursor = 'text';
-			document.getElementById('confirm-password-label').style.color = 'rgba(0,0,0,.9)';
+			document.getElementById('confirmPassword').disabled = false;
+			document.getElementById('confirmPassword').style.cursor = 'text';
+			document.getElementById('confirmPassword-label').style.color = 'rgba(0,0,0,.6)';
 		}else {
-			document.getElementById('confirm-password').disabled = true;
-			document.getElementById('confirm-password').style.cursor = 'not-allowed';
-			document.getElementById('confirm-password-label').style.color = 'rgba(0,0,0,.3)';
+			document.getElementById('confirmPassword').disabled = true;
+			document.getElementById('confirmPassword').style.cursor = 'not-allowed';
+			document.getElementById('confirmPassword-label').style.color = 'rgba(0,0,0,.3)';
 		}
 
 	},
 	handleConfirmPassword : function(e) {
-		var newUserInfo = this.state.userInfo;
-		newUserInfo.confirmPassword = e.target.value;
-	    this.setState({
-	      userInfo : newUserInfo
-	    });
-
-	    if(this.state.userInfo.password !== newUserInfo.confirmPassword){
+		this.updateState(e);
+	    if(this.state.userInfo.password !== this.state.userInfo.confirmPassword){
 	    	document.getElementById('password-match').style.display = 'block';
 	    	document.getElementById('submit-btn').disabled = true;
 	    	// document.getElementById('submit-btn').style.cursor = 'not-allowed';
@@ -86,13 +82,19 @@ var SignupContainer = React.createClass({
 
 	    } else {
 	    	document.getElementById('password-match').style.display = 'none';
-	    	document.getElementById('submit-btn').disabled = false;
+	    	// document.getElementById('submit-btn').disabled = false;
 	    	// document.getElementById('submit-btn').style.color = '#ef5100';
 	    	// document.getElementById('submit-btn').style.cursor = 'pointer';
-	    	document.getElementById('submit-btn').className = 'active';
-	    } 
+	    	this.checkInputs();
+	    }
 	},
-
+	checkInputs : function () {
+		var u = this.state.userInfo;
+		if (u.name !== '' && u.email !== ''){
+			document.getElementById('submit-btn').disabled = false;
+			document.getElementById('submit-btn').className = 'active';
+		}
+	},
 	handleSubmit: function (event) {
 	  event.preventDefault();
 	  document.getElementById('submit-overlay').style.display = 'block';
@@ -102,7 +104,6 @@ var SignupContainer = React.createClass({
 			<div>
 				<SignupForm 
 					onSubmit={this.handleSubmit}
-					password={this.state.userInfo.password}
 					onBlur={this.vaildateInput}
 					onCheckPassword={this.handleCheckPassword}
 					onConfirmPassword={this.handleConfirmPassword} />

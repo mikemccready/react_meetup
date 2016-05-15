@@ -53,6 +53,46 @@ nav {
 	}
 }
 
+.welcome-page {
+	background: url(../assets/welcome-bg.jpg);
+	background-size: cover;
+	background-position: center bottom;
+	top:0;
+	left: 0;
+	width: 100vw;
+	height: auto;
+	min-height: 100vh;
+	position: fixed;
+	z-index: 1000;
+	color: black;
+	text-align: center;
+
+
+	h1 {
+		text-transform: uppercase;
+		font-weight: lighter;
+		font-family: $copy;
+		letter-spacing: 0.15em;
+		font-size: 12.5vw; 
+		margin: 30vh auto 0;
+	}
+
+	.welcome-link {
+		text-transform: uppercase;
+		text-decoration: none;
+		color: black;
+		padding: .5em 1.5em;
+		height: 5em;
+		line-height: 5em;
+		font-size: 1em;
+		letter-spacing: 0.15em;
+		border: solid white 2px;
+		font-weight: bold;
+		background-color: rgba(255,255,255,.3);
+
+	}
+}
+
 .events-container {
 	width: 100%;
 	text-align: center;

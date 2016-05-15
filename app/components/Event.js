@@ -1,7 +1,7 @@
 var React = require('react');
 
 function Event(props) {
-	console.log(props)
+	// console.log(props)
 	var imageURL = "url(" + props.image + ")";
 	return(
 		<div className="event" style={{backgroundImage: imageURL}}>

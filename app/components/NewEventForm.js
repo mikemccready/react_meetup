@@ -4,7 +4,7 @@ function NewEventForm(props) {
 	return(
 		<form className="form">
 			<label for="title">
-				Name of Event
+				Event Name
 				<input type="text" 
 					placeholder="Birthday Party"
 					autoFocus={focus}
@@ -12,7 +12,7 @@ function NewEventForm(props) {
 				</input>
 			</label>
 			<label for="host">
-				Email address
+				Hosted by
 				<input id="host" 
 					type="text" 
 					placeholder="John Smith" 
@@ -32,7 +32,11 @@ function NewEventForm(props) {
 			</datalist>
 			<label for="location">
 				Location
-				<input id="location" list="events" name="myEvent" placeholder="Cocktail Hour" />
+				<input id="location" 
+					type="text" 
+					placeholder="1 Ocean Ave, Los Angeles, CA 90210" 
+					autocomplete="street-address" 
+					required></input>
 			</label>
 			<label for="start-time">
 				Start Time
@@ -41,7 +45,24 @@ function NewEventForm(props) {
 			<label for="end-time">
 				End Time
 				<input id="end-time" type="datetime-local" required></input>
-			</label>			
+			</label>
+
+			<label for="guest-list">
+				Guest List
+				<textarea id="guest-list" 
+					type="textarea" 
+					placeholder="JohnSmith@gmail.com, partyguy@hotmail.com, nextguest@stuff.com" 
+					rows="4"
+					required></textarea>
+			</label>
+
+			<label for="more-info">
+				Additional Info
+				<textarea id="guest-list" 
+					type="textarea" 
+					placeholder="Super fun party, yay, BYOB" 
+					rows="3"></textarea>
+			</label>									
 
 			<button
   				id="submit-btn"

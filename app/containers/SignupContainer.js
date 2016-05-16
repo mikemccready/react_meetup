@@ -109,7 +109,7 @@ var SignupContainer = React.createClass({
 					onConfirmPassword={this.handleConfirmPassword} />
 				<div id="submit-overlay">
 					<h1>Thanks for joining!</h1>
-					<button id="submit-btn"><Link to='/'>Browse Events</Link></button>
+					<button id="submit-btn"><Link to='/events'>Browse Events</Link></button>
 				</div>
 			</div>	
 		)

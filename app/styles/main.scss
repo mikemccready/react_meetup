@@ -1,4 +1,4 @@
-$og: #ef5100;
+$og: #02ffcf;
 $gold: rgb(179,138,0);
 // rgb(239,81,0)
 $head: "brandon-grotesque";
@@ -54,43 +54,69 @@ nav {
 }
 
 .welcome-page {
-	background: url(../assets/welcome-bg.jpg);
-	background-size: cover;
-	background-position: center bottom;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;	
+	background: url(/assets/welcome-bg.jpg);
+	background-size: 80vw;
+	background-position: center;
+	background-repeat: repeat-y;
+	background-color: white;
 	top:0;
 	left: 0;
 	width: 100vw;
-	height: auto;
-	min-height: 100vh;
+	height: 100vh;
 	position: fixed;
 	z-index: 1000;
 	color: black;
 	text-align: center;
+	border: solid white 15vw;
+
+	.text-block {
+	    width: 80%;
+	    height: 30%;
+	    // background-color: white;
+	    position: absolute;
+	    top:0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
 
 
-	h1 {
-		text-transform: uppercase;
-		font-weight: lighter;
-		font-family: $copy;
-		letter-spacing: 0.15em;
-		font-size: 12.5vw; 
-		margin: 30vh auto 0;
-	}
+		h1 {
+			text-transform: uppercase;
+			font-weight: lighter;
+			font-family: $copy;
+			letter-spacing: 0.25em;
+			font-size: 7.5vw;
+			padding: 0;
+			margin: 0 auto 1.5em;
+			height: 0;
+		}
 
-	.welcome-link {
-		text-transform: uppercase;
-		text-decoration: none;
-		color: black;
-		padding: .5em 1.5em;
-		height: 5em;
-		line-height: 5em;
-		font-size: 1em;
-		letter-spacing: 0.15em;
-		border: solid white 2px;
-		font-weight: bold;
-		background-color: rgba(255,255,255,.3);
+		.welcome-link {
+			text-transform: uppercase;
+			text-decoration: none;
+			color: black;
+			padding: .5em 1.5em;
+			height: 5em;
+			line-height: 5em;
+			font-size: 1em;
+			letter-spacing: 0.15em;
+			border: solid black 2px;
+			font-weight: bold;
+			background-color: rgba(255,255,255,.3);
+			transition: 1s;
 
-	}
+			&:hover {
+				color: white;
+				background-color: rgba(0,0,0,0);
+				border: solid $og 2px;
+			}
+
+		}	    
+	}	
 }
 
 .events-container {
@@ -208,6 +234,11 @@ nav {
 
 		:-ms-input-placeholder {  
 		   font-family: $copy;
+		}
+
+		.form-label {
+			margin-right: 1em;
+			color: rgba(0,0,0,.66);
 		}		
 
 		input, textarea {
@@ -220,6 +251,7 @@ nav {
 			font-weight: bold;
 			color: rgba(0,0,0,1);
 			font-family: $copy;
+			resize: none;
 
 			&:focus{
 				outline: none!important;
@@ -322,16 +354,29 @@ nav {
 @media(min-width: 768px) {
 	.form {
 		label {
+			margin-right: 1em;
 			input {
 				display: inline-block;
 				width: 66%;
-				margin-left: 1em;
 			}			
 		}
 	}		
 }
 
 @media(min-width: 1000px) {
+
+	.welcome-page {
+		background-size: 50em;
+		border: solid white 25vh;
+
+		.text-block {
+
+			h1 {
+				font-size: 4em;
+			}	    
+		}	
+	}	
+
 	.event {
 		width: 33%;
 		height: 15vw;

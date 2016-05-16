@@ -6,7 +6,7 @@ function Event(props) {
 	return(
 		<div className="event" style={{backgroundImage: imageURL}}>
 			<div className="event-location">
-				<img src="./app/assets/icon.png" id="event-icon" />
+				<img src="./assets/icon.png" id="event-icon" />
 				<h5>{props.location}</h5>
 			</div>	
 			<div className="event-info">

@@ -5,7 +5,7 @@ function SignupForm(props) {
 	return(
 		<form onSubmit={props.onSubmit} className="form">
 			<label for="name">
-				Name
+				<span className="form-label">Name</span>
 				<span id="name-valid" style={{display: 'none'}}>Please enter your name</span>
 				<input id="name"
 					type="text" 
@@ -18,7 +18,7 @@ function SignupForm(props) {
 				</input>
 			</label>
 			<label for="email">
-				Email address
+				<span className="form-label">Email address</span>
 				<span id="email-valid" style={{display: 'none'}}>Please enter your email</span>
 				<input id="email" 
 					type="email" 
@@ -29,7 +29,7 @@ function SignupForm(props) {
 					required></input>
 			</label>
 			<label for="password">
-				Password
+				<span className="form-label">Password</span>
 				<span id="character-length" style={{display: 'none'}}>Must be between 8 and 20 characters</span>
 				<span id="password-number" style={{display: 'none'}}>Must contain a number</span>				
 				<input id="password" 
@@ -42,7 +42,7 @@ function SignupForm(props) {
 					value={props.password}></input>
 			</label>
 			<label for="confirmPassword">
-				<span id="confirmPassword-label" style={{color: 'rgba(0,0,0,.33'}}>Confirm Password</span>
+				<span className="form-label" id="confirmPassword-label" style={{color: 'rgba(0,0,0,.33'}}>Confirm Password</span>
 				<span id="password-match" style={{display: 'none'}}>Passwords not matching</span>
 				<input id="confirmPassword" 
 					type="password" 

@@ -15,8 +15,10 @@ var SignupContainer = React.createClass({
 		}
 	},
 	updateState : function (e) {
-		var input = e.target.id;
-		this.state.userInfo[input] = e.target.value;
+		if(e){
+			var input = e.target.id;
+			this.state.userInfo[input] = e.target.value;
+		}
 	},
 	vaildateInput : function (e) {
 		this.updateState(e);

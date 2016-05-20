@@ -276,6 +276,24 @@ nav {
 		}			
 	}
 
+	h3 {
+		cursor: pointer;
+		z-index: 1000;
+	}
+
+	#additional-info, #req-info {
+		&.hidden {
+			max-height: 0em;
+			opacity: 0;
+		}
+		&.active {
+			max-height: 30em;
+			opacity: 1;
+			transition: height .75s ease-out, opacity 1s 1s ease;
+			// transition-delay: opacity 1s;
+		}
+	}
+
 	#submit-btn {
 		background-color: rgba(0,0,0,0);
 		height: 2.5em;

@@ -6,32 +6,36 @@ var Link =  ReactRouter.Link;
 var SignupContainer = React.createClass({
 	getInitialState: function() {
 		return{
-			userInfo: {
-				name: '',
-				email: '',
-				password: '',
-				confirmPassword: ''
-			}
+			userInfo: {},
+			validPassword: false,
+			matchingPassword: false,
+			moreInfoVisible: false
 		}
 	},
-	updateState : function (e) {
+	handleChange : function (e) {
 		if(e){
 			var input = e.target.id;
+			console.log(input)
 			this.state.userInfo[input] = e.target.value;
+			if(input === 'name' || input === 'email') {
+				this.handleCheckBlank(e);
+			}else if (input === 'password') {
+				this.handleCheckPassword(e);
+			}else if (input === 'confirmPassword') {
+				this.handleConfirmPassword(e);
+			}
 		}
+		console.log(this.state.userInfo)
+		this.checkInputs()
 	},
-	vaildateInput : function (e) {
-		this.updateState(e);
+	handleCheckBlank : function (e) {
 		if (e.target.value.length < 1) {
 			document.getElementById(e.target.id + '-valid').style.display = 'block';
 		} else {
 			document.getElementById(e.target.id + '-valid').style.display = 'none';
 		}
-		this.handleConfirmPassword()
 	},	
 	handleCheckPassword: function(e) {
-		//update state
-		this.updateState(e);
 	    var password = this.state.userInfo.password;
 		var passingReq = [];
 		var requirements = [
@@ -66,35 +70,40 @@ var SignupContainer = React.createClass({
 			document.getElementById('confirmPassword').disabled = false;
 			document.getElementById('confirmPassword').style.cursor = 'text';
 			document.getElementById('confirmPassword-label').style.color = 'rgba(0,0,0,.6)';
+			this.state.userInfo.validPassword = true;
 		}else {
 			document.getElementById('confirmPassword').disabled = true;
 			document.getElementById('confirmPassword').style.cursor = 'not-allowed';
 			document.getElementById('confirmPassword-label').style.color = 'rgba(0,0,0,.3)';
+			this.state.userInfo.validPassword = false;
 		}
-
 	},
 	handleConfirmPassword : function(e) {
-		this.updateState(e);
 	    if(this.state.userInfo.password !== this.state.userInfo.confirmPassword){
 	    	document.getElementById('password-match').style.display = 'block';
-	    	document.getElementById('submit-btn').disabled = true;
-	    	// document.getElementById('submit-btn').style.cursor = 'not-allowed';
-	    	// document.getElementById('submit-btn').style.color = 'lightgray';
-	    	document.getElementById('submit-btn').className = 'disabled';
-
+	    	this.state.userInfo.matchingPassword = false;
 	    } else {
 	    	document.getElementById('password-match').style.display = 'none';
-	    	// document.getElementById('submit-btn').disabled = false;
-	    	// document.getElementById('submit-btn').style.color = '#ef5100';
-	    	// document.getElementById('submit-btn').style.cursor = 'pointer';
-	    	this.checkInputs();
+	    	this.state.userInfo.matchingPassword = true;
 	    }
 	},
 	checkInputs : function () {
 		var u = this.state.userInfo;
-		if (u.name !== '' && u.email !== ''){
+		if (u.name !== '' && u.email !== '' && u.matchingPassword === true && u.validPassword === true){
 			document.getElementById('submit-btn').disabled = false;
 			document.getElementById('submit-btn').className = 'active';
+		} else {
+			document.getElementById('submit-btn').disabled = true;
+			document.getElementById('submit-btn').className = 'disabled';			
+		}
+	},
+	handleMoreInfo: function() {
+		if(this.state.moreInfoVisible === false){
+			document.querySelector('#additional-info').className = 'active';
+			this.state.moreInfoVisible = true;
+		} else {
+			document.querySelector('#additional-info').className = 'hidden';
+			this.state.moreInfoVisible = false;			
 		}
 	},
 	handleSubmit: function (event) {
@@ -106,9 +115,8 @@ var SignupContainer = React.createClass({
 			<div>
 				<SignupForm 
 					onSubmit={this.handleSubmit}
-					onBlur={this.vaildateInput}
-					onCheckPassword={this.handleCheckPassword}
-					onConfirmPassword={this.handleConfirmPassword} />
+					onUpdateInput={this.handleChange}
+					onMoreInfo={this.handleMoreInfo} />
 				<div id="submit-overlay">
 					<h1>Thanks for joining!</h1>
 					<button id="submit-btn"><Link to='/events'>Browse Events</Link></button>

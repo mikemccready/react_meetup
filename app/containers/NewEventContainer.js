@@ -25,14 +25,14 @@ var NewEventContainer = React.createClass({
 			document.getElementById(e.target.id + '-valid').style.display = 'none';
 		}
 	},checkInputs : function () {
-		// var u = this.state.userInfo;
-		// if (u){
-		// 	document.getElementById('submit-btn').disabled = false;
-		// 	document.getElementById('submit-btn').className = 'active';
-		// } else {
-		// 	document.getElementById('submit-btn').disabled = true;
-		// 	document.getElementById('submit-btn').className = 'disabled';			
-		// }
+		var e = this.state.eventInfo;
+		if (e.name !== '' && e.host !== '' && e.location !== '' && e.startTime !== ''){
+			document.getElementById('submit-btn').disabled = false;
+			document.getElementById('submit-btn').className = 'active';
+		} else {
+			document.getElementById('submit-btn').disabled = true;
+			document.getElementById('submit-btn').className = 'disabled';			
+		}
 	},
 	render: function() {
 		return(

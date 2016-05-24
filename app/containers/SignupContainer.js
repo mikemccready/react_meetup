@@ -25,7 +25,6 @@ var SignupContainer = React.createClass({
 				this.handleConfirmPassword(e);
 			}
 		}
-		console.log(this.state.userInfo)
 		this.checkInputs()
 	},
 	handleCheckBlank : function (e) {

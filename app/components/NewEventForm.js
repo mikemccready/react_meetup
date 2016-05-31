@@ -2,7 +2,7 @@ var React = require('react');
 
 function NewEventForm(props) {
 	return(
-		<form className="form">
+		<form onSubmit={props.onSubmit} className="form">
 			<label for="title">
 				<span className="form-label">Event Name</span>
 				<span id="name-valid" style={{display: 'none'}}>Please enter an event name</span>
@@ -15,6 +15,27 @@ function NewEventForm(props) {
 					required>
 				</input>
 			</label>
+			<label for="event-type">
+				<span className="form-label">Type of event</span>
+				<input id="event-type" 
+					list="events" 
+					name="myEvent" 
+					required
+					placeholder="Cocktail Hour" 
+					onBlur={props.onUpdateInput}
+					onChange={props.onUpdateInput}
+					/>
+			</label>	
+			<datalist id="events">
+				<option value="Birthday Party" />
+				<option value="Cocktail Hour" />
+				<option value="Holiday Party" />
+				<option value="Learning" />
+				<option value="Meeting" />
+				<option value="Networking" />
+				<option value="Seminar" />
+				<option value="Special Event" />
+			</datalist>		
 			<label for="host">
 				<span className="form-label">Hosted by</span>
 				<span id="host-valid" style={{display: 'none'}}>Please enter the host</span>
@@ -26,23 +47,6 @@ function NewEventForm(props) {
 					onChange={props.onUpdateInput}					
 					required></input>
 			</label>
-			<label for="event-type">
-				<span className="form-label">Type of event (Optional)</span>
-				<input id="event-type" 
-					list="events" 
-					name="myEvent" 
-					placeholder="Cocktail Hour" 
-					onBlur={props.onUpdateInput}
-					onChange={props.onUpdateInput}
-					/>
-			</label>
-			<datalist id="events">
-				<option value="Birthday Party" />
-				<option value="Wedding" />
-				<option value="Cocktail Hour" />
-				<option value="Meet-up" />
-				<option value="Special Event" />
-			</datalist>
 			<label for="location">
 				<span className="form-label">Location</span>
 				<span id="location-valid" style={{display: 'none'}}>Please enter event location</span>
@@ -72,13 +76,13 @@ function NewEventForm(props) {
 			</label>
 
 			<label for="guest-list">
-				<span className="form-label">Guest List (Optional, Seperate by commas)</span>
-				<textarea id="guest-list" 
-					type="textarea" 
-					placeholder="JohnSmith@gmail.com, partyguy@hotmail.com, nextguest@stuff.com" 
-					rows="4"
+				<span className="form-label">Set capacity</span>
+				<input id="guest-list" 
+					type="number"
+					placeholder="50"
+					required
 					onBlur={props.onUpdateInput}
-					onChange={props.onUpdateInput}></textarea>
+					onChange={props.onUpdateInput}></input>
 			</label>
 
 			<label for="more-info">
@@ -88,7 +92,7 @@ function NewEventForm(props) {
 					onBlur={props.onUpdateInput}
 					onChange={props.onUpdateInput}					
 					placeholder="Super fun party, yay, BYOB" 
-					rows="3"></textarea>
+					rows="2"></textarea>
 			</label>									
 
 			<button

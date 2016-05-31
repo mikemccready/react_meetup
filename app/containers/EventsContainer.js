@@ -19,7 +19,12 @@ var EventsContainer = React.createClass({
             			title={meetup.title}
             			host={meetup.host}
             			image={meetup.image}
+            			address={meetup.address}
             			location={meetup.city}
+            			start_time={meetup.start_time}
+            			date={meetup.date}
+            			state={meetup.state}
+            			event_type={meetup.event_type}
             		/>;
           })
 

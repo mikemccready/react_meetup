@@ -1,4 +1,4 @@
-$og: #02ffcf;
+$og: #02dab1;
 $gold: rgb(179,138,0);
 // rgb(239,81,0)
 $head: "brandon-grotesque";
@@ -56,24 +56,23 @@ nav {
 .welcome-page {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;	
-	background: url(/assets/welcome-bg.jpg);
-	background-size: 80vw;
-	background-position: center;
-	background-repeat: repeat-y;
-	background-color: white;
-	top:0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	position: fixed;
-	z-index: 1000;
-	color: black;
-	text-align: center;
-	border: solid white 15vw;
+    -webkit-box-sizing: border-box;
+    background: url(/assets/welcome-bg.jpg);
+    background-size: 100vw;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    color: black;
+    text-align: center;
 
 	.text-block {
-	    width: 80%;
+	    width: 100%;
 	    height: 30%;
 	    // background-color: white;
 	    position: absolute;
@@ -86,10 +85,10 @@ nav {
 
 		h1 {
 			text-transform: uppercase;
-			font-weight: lighter;
+			font-weight: bold;
 			font-family: $copy;
 			letter-spacing: 0.25em;
-			font-size: 7.5vw;
+			font-size: 12.5vw;
 			padding: 0;
 			margin: 0 auto 1.5em;
 			height: 0;
@@ -106,12 +105,12 @@ nav {
 			letter-spacing: 0.15em;
 			border: solid black 2px;
 			font-weight: bold;
-			background-color: rgba(255,255,255,.3);
+			background-color: rgba(255,255,255,.15);
 			transition: 1s;
 
 			&:hover {
-				color: white;
-				background-color: rgba(0,0,0,0);
+				color: $og;
+				background-color: rgba(255,255,255,.75);
 				border: solid $og 2px;
 			}
 
@@ -123,13 +122,14 @@ nav {
 	width: 100%;
 	text-align: center;
 	margin: 0 auto;
+	padding-bottom: 5em;
 }
 
 .event {
 	position: relative;
 	cursor: pointer;
-	width: 90vw;
-	height: 45vw;
+	width: calc(100vw - 4em);
+	height: 65vw;
 	background-size: cover !important;
 	background-position: center center !important;
 	padding: .5em 2em;
@@ -152,9 +152,12 @@ nav {
 	}
 	
 	p {
-		font-family: $copy;
+		// font-family: $copy;
 		line-height: 0;
 		margin: 1em 0 .75em;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		font-size: .5em;		
 	}
 
 	.event-location {
@@ -167,7 +170,7 @@ nav {
 		top: 0;
 		left: 0;
 		height: 2em;
-		background-color: rgba(255,255,255,.9);
+		background-color: rgba(255,255,255,.925);
 
 		#event-icon {
 			display: inline-block;
@@ -190,10 +193,63 @@ nav {
 		bottom: 0;
 		left: 0;
 		margin-right: auto;
-		width: auto;
-		padding: 0 1em;
-		background-color: rgba(255,255,255,.9);
+		min-width: auto;
+		padding: 0.25em 1.25em 0 1em;
+		background-color: rgba(255,255,255,.925);
 		transition: 1s;
+
+		#date {
+			color: $gold;
+			font-weight: bold;
+		}
+
+		.more-info {
+			display: none;
+		}
+	}
+
+
+
+	&:hover {
+		.event-info {
+			position: absolute;
+			bottom: 0;
+			top: 0;
+			left: 0;
+			margin: 1em 0;
+			width: calc(100%);
+			.basic-info {
+				display: none;
+			}	
+			.more-info {
+				display: block;
+				padding: .5em 0;
+
+				h3 {
+					padding: 0 !important;
+					font-size: 2em;
+					margin: 0;
+				}
+
+				p {
+					font-size: .85em;
+					line-height: 1.35em;
+					margin: 0.625em 0.5em;
+					text-transform: none;
+					font-family: $copy;
+				}
+
+				#event-type {
+					color: $gold;
+					font-family: $head;
+					text-transform: uppercase;
+					font-size: .75em;
+				}
+			}	
+		}
+		.event-location {
+			display: none;
+		}	
 	}
 }
 
@@ -378,14 +434,21 @@ nav {
 				width: 66%;
 			}			
 		}
+	}
+
+	.event {
+		width: 30vw;
+		height: 30vw;
+		margin: .5em;
+		display: inline-block;		
 	}		
 }
 
 @media(min-width: 1000px) {
 
 	.welcome-page {
-		background-size: 50em;
-		border: solid white 25vh;
+		background-size: 100%;
+		border: solid white 20vh;
 
 		.text-block {
 
@@ -396,8 +459,8 @@ nav {
 	}	
 
 	.event {
-		width: 33%;
-		height: 15vw;
+		width: 25vw;
+		height: 25vw;
 		margin: .5em;
 		display: inline-block;
 	}

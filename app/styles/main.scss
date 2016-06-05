@@ -374,12 +374,13 @@ nav {
 		}
 
 		&.active {
-			border: solid 2px $gold;
+			border: solid 2px black;
 			cursor: pointer;
-			color: rgba(0,0,0,1);
+			color: black;
 
 			&:hover {
 				color:  $og;
+				border: solid 2px $og;
 			}
 		}
 	}

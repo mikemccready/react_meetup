@@ -15,10 +15,11 @@ var SignupContainer = React.createClass({
 	handleChange : function (e) {
 		if(e){
 			var input = e.target.id;
-			console.log(input)
 			this.state.userInfo[input] = e.target.value;
-			if(input === 'name' || input === 'email') {
+			if(input === 'name') {
 				this.handleCheckBlank(e);
+			}else if (input === 'email'){
+				this.handleCheckEmail(e);
 			}else if (input === 'password') {
 				this.handleCheckPassword(e);
 			}else if (input === 'confirmPassword') {
@@ -33,7 +34,15 @@ var SignupContainer = React.createClass({
 		} else {
 			document.getElementById(e.target.id + '-valid').style.display = 'none';
 		}
-	},	
+	},
+	handleCheckEmail : function (e) {
+		var re = /\S+@\S+\.\S+/;
+		if(re.test(e.target.value)){
+			document.getElementById(e.target.id + '-valid').style.display = 'none';
+		} else {
+			document.getElementById(e.target.id + '-valid').style.display = 'block';
+		}
+	},			
 	handleCheckPassword: function(e) {
 	    var password = this.state.userInfo.password;
 		var passingReq = [];

@@ -21,7 +21,7 @@ function SignupForm(props) {
 				</label>
 				<label for="email">
 					<span className="form-label">Email address</span>
-					<span id="email-valid" style={{display: 'none'}}>Please enter your email</span>
+					<span id="email-valid" style={{display: 'none'}}>Please a valid email</span>
 					<input id="email"
 						className="required" 
 						type="email" 

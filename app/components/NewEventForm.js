@@ -76,13 +76,15 @@ function NewEventForm(props) {
 			</label>
 
 			<label for="guest-list">
-				<span className="form-label">Set capacity</span>
-				<input id="guest-list" 
-					type="number"
-					placeholder="50"
+				<span className="form-label">Guest List</span>
+				<span id="guest-list-valid" style={{display: 'none'}}>Enter your guest's email (seperated by comma)</span>
+				<textarea id="guest-list" 
+					type="textarea"
+					placeholder="partyguy1@hotmail.com, someotherguy@gmail.com"
 					required
 					onBlur={props.onUpdateInput}
-					onChange={props.onUpdateInput}></input>
+					onChange={props.onUpdateInput}
+					rows="1"></textarea>
 			</label>
 
 			<label for="more-info">
@@ -92,7 +94,7 @@ function NewEventForm(props) {
 					onBlur={props.onUpdateInput}
 					onChange={props.onUpdateInput}					
 					placeholder="Super fun party, yay, BYOB" 
-					rows="2"></textarea>
+					rows="1"></textarea>
 			</label>									
 
 			<button

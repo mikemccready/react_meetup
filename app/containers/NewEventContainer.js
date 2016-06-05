@@ -16,7 +16,6 @@ var NewEventContainer = React.createClass({
 			if (e.target.required) {
 				this.handleCheckBlank(e);
 			}
-			console.log(this.state.eventInfo)
 		}
 		this.checkInputs()
 	},
@@ -29,7 +28,7 @@ var NewEventContainer = React.createClass({
 	},
 	checkInputs : function () {
 		var e = this.state.eventInfo;
-		if (e.name !== '' && e.host !== '' && e.location !== '' && e.startTime !== ''){
+		if (e.name !== '' && e.host !== '' && e.location !== '' && e['start-time'] !== '' && e['guest-list'] !== ''){
 			document.getElementById('submit-btn').disabled = false;
 			document.getElementById('submit-btn').className = 'active';
 		} else {

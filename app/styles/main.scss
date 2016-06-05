@@ -227,8 +227,8 @@ nav {
 
 				h3 {
 					padding: 0 !important;
-					font-size: 2em;
-					margin: 0;
+					font-size: 1.625em;
+					margin: 0!important;
 				}
 
 				p {
@@ -244,6 +244,7 @@ nav {
 					font-family: $head;
 					text-transform: uppercase;
 					font-size: .75em;
+					margin-bottom: 0;
 				}
 			}	
 		}
@@ -440,7 +441,15 @@ nav {
 		width: 30vw;
 		height: 30vw;
 		margin: .5em;
-		display: inline-block;		
+		display: inline-block;
+
+		&:hover {
+			.event-info {
+				#event-type {
+					margin-top: 2em;
+				}	
+			}	
+		}			
 	}		
 }
 
@@ -461,7 +470,5 @@ nav {
 	.event {
 		width: 25vw;
 		height: 25vw;
-		margin: .5em;
-		display: inline-block;
 	}
 }	

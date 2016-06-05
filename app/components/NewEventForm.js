@@ -17,6 +17,7 @@ function NewEventForm(props) {
 			</label>
 			<label for="event-type">
 				<span className="form-label">Type of event</span>
+				<span id="event-type-valid" style={{display: 'none'}}>Please enter the event type</span>
 				<input id="event-type" 
 					list="events" 
 					name="myEvent" 

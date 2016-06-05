@@ -28,8 +28,7 @@ function Event(props) {
 				<div className="more-info">
 					<p id="event-type">{props.event_type}</p>
 					<h3>{props.title}</h3>			
-					<p>Hosted by {props.host}</p>
-					<p>{date}, {props.start_time}</p>	
+					<p>Hosted by {props.host}<br />{date}, {props.start_time}</p>	
 					<p>{props.address}<br/>
 					{props.location}, {props.state}</p>
 				</div>

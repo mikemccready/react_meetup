@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "production": "webpack -p",
+    "production": "webpack -p --hot",
     "start": "webpack-dev-server --hot"
   },
   "repository": {

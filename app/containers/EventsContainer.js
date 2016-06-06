@@ -7,7 +7,7 @@ var EventsContainer = React.createClass({
 		return { meetups: [] };
 	},
 	componentDidMount: function() {
-		axios.get(__dirname + 'mock-data.json')
+		axios.get('./mock-data.json')
 		.then(function(response) {
 			this.setState({meetups: response.data});
 		}.bind(this))

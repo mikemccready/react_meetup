@@ -1,0 +1,475 @@
+$og: #02dab1;
+$gold: rgb(179,138,0);
+// rgb(239,81,0)
+$head: "brandon-grotesque";
+$copy: "freight-text-pro";
+
+body {
+	background-color: white;
+	width: 100vw;
+	height: auto;
+	min-height: 100vh;
+	margin: 0;
+	font-family: $head;
+	font-weight: light;
+	// background: url(../assets/bg.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+
+nav {
+	position: fixed;
+	z-index: 1000;
+	width: 100vw;
+	top: 0;
+	transition: .5s;
+	border-bottom: white solid 0px;
+
+	#nav-icon {
+		height: 2em;
+		padding: 0.5em 1em;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		color: black;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		padding: 1em 0;
+		cursor: pointer;
+		font-family: $head;
+		font-weight: bold;
+		transition: .5s;
+		font-size: .75em;
+
+		&:hover {
+			color: $og;
+		}
+	}
+
+	&.scrolled {
+		background-color: rgba(255,255,255,.75);
+		border-bottom: white solid 1px;
+	}
+}
+
+.welcome-page {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: url(/assets/welcome-bg.jpg);
+    background-size: 100vw;
+    background-position: center;
+    background-repeat: repeat;
+    background-color: white;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    color: black;
+    text-align: center;
+
+	.text-block {
+	    width: 100%;
+	    height: 30%;
+	    // background-color: white;
+	    position: absolute;
+	    top:0;
+	    bottom: 0;
+	    left: 0;
+	    right: 0;
+	    margin: auto;
+
+
+		h1 {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-family: $copy;
+			letter-spacing: 0.25em;
+			font-size: 12.5vw;
+			padding: 0;
+			margin: 0 auto 1.5em;
+			height: 0;
+		}
+
+		.welcome-link {
+			text-transform: uppercase;
+			text-decoration: none;
+			color: black;
+			padding: .5em 1.5em;
+			height: 5em;
+			line-height: 5em;
+			font-size: 1em;
+			letter-spacing: 0.15em;
+			border: solid black 2px;
+			font-weight: bold;
+			background-color: rgba(255,255,255,.15);
+			transition: 1s;
+
+			&:hover {
+				color: $og;
+				background-color: rgba(255,255,255,.75);
+				border: solid $og 2px;
+			}
+
+		}	    
+	}	
+}
+
+.events-container {
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
+	padding-bottom: 5em;
+}
+
+.event {
+	position: relative;
+	cursor: pointer;
+	width: calc(100vw - 4em);
+	height: 65vw;
+	background-size: cover !important;
+	background-position: center center !important;
+	padding: .5em 2em;
+	margin: 1em auto;
+	max-width: 30em;
+	max-height: 15em;
+	// border: 2px solid $gold;
+	box-shadow: .15em .15em .15em 0px rgba(0, 0, 0, 0.15);
+	text-align: left;
+	text-transform: capitalize;
+	color: rgba(0,0,0,.5);
+	transition: 1s;
+
+	h3 {
+		margin: .5em 0;
+		color: rgba(0,0,0,.9);
+		text-transform: uppercase;
+		font-size: 1em;
+		letter-spacing: 0.075em;
+	}
+	
+	p {
+		// font-family: $copy;
+		line-height: 0;
+		margin: 1em 0 .75em;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		font-size: .5em;		
+	}
+
+	.event-location {
+		position: absolute;
+		font-family: $head;
+		letter-spacing: 0.075em;
+		text-transform: uppercase;
+		color: rgba(0,0,0,.9);
+		font-size: .75em;
+		top: 0;
+		left: 0;
+		height: 2em;
+		background-color: rgba(255,255,255,.925);
+
+		#event-icon {
+			display: inline-block;
+			position: absolute;
+			height: 1em;
+			padding: 0.5em;
+			padding-right: 0;
+		}
+
+		h5 {
+			display: inline-block;
+			padding: 0.5em 1em;
+			margin: 0 0 0 .75em;
+			line-height: 2em;
+		}
+	}
+
+	.event-info {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin-right: auto;
+		min-width: auto;
+		padding: 0.25em 1.25em 0 1em;
+		background-color: rgba(255,255,255,.925);
+		transition: 1s;
+
+		#date {
+			color: $gold;
+			font-weight: bold;
+		}
+
+		.more-info {
+			display: none;
+		}
+	}
+
+
+
+	&:hover {
+		.event-info {
+			position: absolute;
+			bottom: 0;
+			top: 0;
+			left: 0;
+			margin: 1em 0;
+			width: calc(100%);
+			.basic-info {
+				display: none;
+			}	
+			.more-info {
+				display: block;
+				padding: .5em 0;
+
+				h3 {
+					padding: 0 !important;
+					font-size: 1.625em;
+					margin: 0!important;
+				}
+
+				p {
+					font-size: .85em;
+					line-height: 1.35em;
+					margin: 0.625em 0.5em;
+					text-transform: none;
+					font-family: $copy;
+				}
+
+				#event-type {
+					color: $gold;
+					font-family: $head;
+					text-transform: uppercase;
+					font-size: .75em;
+					margin-bottom: 0;
+				}
+			}	
+		}
+		.event-location {
+			display: none;
+		}	
+	}
+}
+
+
+
+.form {
+	background-color: none;
+	padding: 0.5em;
+	width: 100%;
+	max-width: 30em;
+	margin: 0em auto;
+
+	label {
+		display: block;
+		margin: 1em auto 2em;
+		width: 100%;
+		color: rgba(0,0,0,.66);
+		font-weight: bold;
+		font-size: .75em;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		transition: 1s;
+
+		::-webkit-input-placeholder {
+		   font-family: $copy;
+		   font-weight: bold;
+		   letter-spacing: 0.05em;
+		   color: rgba(0,0,0,.45);
+		}
+
+		:-moz-placeholder { /* Firefox 18- */
+		   font-family: $copy;
+		}
+
+		::-moz-placeholder {  /* Firefox 19+ */
+		   font-family: $copy; 
+		}
+
+		:-ms-input-placeholder {  
+		   font-family: $copy;
+		}
+
+		.form-label {
+			margin-right: 1em;
+			color: rgba(0,0,0,.66);
+		}		
+
+		input, textarea {
+			display: block;
+			width: 95%;
+			padding: 0.75em 0 0.25em;
+			border: none;
+			background-color: rgba(0,0,0,0);
+			font-size: 1.5em;
+			font-weight: bold;
+			color: rgba(0,0,0,1);
+			font-family: $copy;
+			resize: none;
+
+			&:focus{
+				outline: none!important;
+				border-bottom: $gold 2px solid;
+				color: black;
+
+				// ::-webkit-input-placeholder {
+				//    font-family: $copy;
+				//    font-weight: bold;
+				//    letter-spacing: 0.05em;
+				//    color: rgba(255,255,255,.3) !important;
+				// }
+			}
+
+			&:-webkit-autofill {
+			    -webkit-box-shadow: 0 0 0px 1000px white inset;
+			}
+		}
+
+		span {
+			color: $gold;
+		}			
+	}
+
+	h3 {
+		cursor: pointer;
+		z-index: 1000;
+	}
+
+	#additional-info, #req-info {
+		&.hidden {
+			max-height: 0em;
+			opacity: 0;
+		}
+		&.active {
+			max-height: 30em;
+			opacity: 1;
+			transition: height .75s ease-out, opacity 1s 1s ease;
+			// transition-delay: opacity 1s;
+		}
+	}
+
+	#submit-btn {
+		background-color: rgba(0,0,0,0);
+		height: 2.5em;
+		line-height: 2.5em;
+		width: 66%;
+		margin: 2em 17%;
+		padding: 0;
+		font-family: $head;
+		font-weight: bold;
+		font-size: 1em;
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-family: $copy;	
+		transition: 1s;	
+		color: rgba(0,0,0,.3);
+
+		&.disabled {
+			border: solid 2px rgba(255,255,255,.33);
+			cursor: not-allowed;
+			color: rgba(0,0,0,.3);
+		}
+
+		&.active {
+			border: solid 2px black;
+			cursor: pointer;
+			color: black;
+
+			&:hover {
+				color:  $og;
+				border: solid 2px $og;
+			}
+		}
+	}
+}
+
+#submit-overlay {
+	position: fixed;
+	top: 0;
+	display: none;
+	background-image: url(https://lunkiandsika.files.wordpress.com/2010/01/where_the_wild_things_are-2.jpg);
+	background-size: cover;
+	width: 100vw;
+	height: 100vh;
+	text-align: center;
+	
+	h1 {
+		font-size: 5em;
+		color: $gold;
+		width: 100%;
+		margin-top: 2em;
+		text-align: center;
+	}
+
+	#submit-btn {
+		background-color: rgba(0,0,0,1);
+		height: 2.5em;
+		line-height: 2.5em;
+		width: 20em;
+		padding: 0;
+		font-family: $head;
+		font-weight: bold;
+		font-size: 1em;
+		text-transform: uppercase;
+		letter-spacing: 0.25em;
+		font-family: $copy;	
+		transition: 1s;	
+		color: rgba(0,0,0,.3);
+		border: $gold solid 2px;
+
+		a {
+			text-decoration: none;
+			color: $gold;
+		}
+	}	
+}
+
+@media(min-width: 768px) {
+	.form {
+		label {
+			margin-right: 1em;
+			input {
+				display: inline-block;
+				width: 66%;
+			}			
+		}
+	}
+
+	.event {
+		width: 30vw;
+		height: 30vw;
+		margin: .5em;
+		display: inline-block;
+
+		&:hover {
+			.event-info {
+				#event-type {
+					margin-top: 2em;
+				}	
+			}	
+		}			
+	}		
+}
+
+@media(min-width: 1000px) {
+
+	.welcome-page {
+		background-size: 100%;
+		border: solid white 20vh;
+
+		.text-block {
+
+			h1 {
+				font-size: 4em;
+			}	    
+		}	
+	}	
+
+	.event {
+		width: 25vw;
+		height: 25vw;
+	}
+}	

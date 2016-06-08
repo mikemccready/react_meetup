@@ -1,4 +1,4 @@
-###Meetup site with react
+#Meetup site with react
 
 Front-End meetup app built with React, webpack, babel, and live-reload.
 
